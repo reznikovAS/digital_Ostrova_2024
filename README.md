@@ -21,3 +21,7 @@ Open: http://localhost:3000
 ### Установка проекта # digital_Ostrova_2024
 Вместо моего токена в /var/www/name.php
 Указать свой
+
+Парсеры должны запускаться автоматически, но на всякий случай с директории /var/www/html
+node scrape.js
+node lift_scrap.js
