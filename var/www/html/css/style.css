@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 400px;
+    /* margin: 20px auto; */
+    background-color: #fff;
+    border-radius: 0px 0px 0px 0px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.header {
+    padding: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+}
+
+.form {
+    padding: 16px;
+    background-color: #e3e3e3;
+}
+
+.form input[type="text"] {
+    width: 90%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form button:hover {
+    background-color: #0056b3;
+}
+
+.info {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+.tariffs {
+    padding: 16px;
+}
+
+.tariff {
+    margin-bottom: 12px;
+}
+
+.tariff-title {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.tariff-description {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 4px;
+}
+
+.tariff-price {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.weather-header {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #ddd;
+    background-color: #f4f4f4;
+}
+
+.weather-card__icon {
+    width: 48px;
+    height: 48px;
+    margin-right: 16px;
+}
+
+.weather-data {
+    font-size: 14px;
+}
+
+.weather-condition {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.weather-card__temp {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.weather-card__params {
+    list-style: none;
+    padding: 16px;
+    margin: 0;
+    border-top: 1px solid #ddd;
+}
+
+.weather-card__param {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    /* padding: 8px 0; */
+}
+.ski-pass {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.ski-pass img {
+    width: 20px;
+    height: 20px;
+}

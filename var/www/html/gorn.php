@@ -53,8 +53,40 @@ $savedSkiPasses = $_SESSION['ski_passes'];
 
         .form {
             padding: 16px;
+            margin: 5px;
             background-color: #e3e3e3;
         }
+        .form_hils {
+            padding: 16px;
+            background-color: #ffffff;;
+        }
+        .form_hils input[type="text"] {
+            width: 90%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .form_hils button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .form_hils button:hover {
+            background-color: #0056b3;
+        }
+
+
+
+
 
         .form input[type="text"] {
             width: 90%;
@@ -194,7 +226,13 @@ $savedSkiPasses = $_SESSION['ski_passes'];
                 <button type="submit">Добавить</button>
             </form>
         </div>
+          <!-- Кнопка перехода на страницу со статусами подъёмников -->
+          <div class="form_hils">
+            <form action="/hils.php" method="get">
+                <button type="submit">Статусы трасс</button>
+            </form>
         </div>
+    </div>
         <div class="tariffs">
             <div class="tariff">
                 <div class="tariff-title">Разовый подъём</div>
@@ -266,7 +304,36 @@ $savedSkiPasses = $_SESSION['ski_passes'];
     $sunrise = $weatherData['forecasts'][0]['sunrise'] ?? 'нет данных';
     $sunset = $weatherData['forecasts'][0]['sunset'] ?? 'нет данных';
     $icon = $weatherData['fact']['icon'] ?? 'skc_d';
+
+    
     ?>
+<?php
+// $client->setHeader('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36');
+// $crawler = $client->request('GET', 'https://ski-gv.ru/hills/1/2/');
+
+// $statusCode = $client->getResponse()->getStatusCode();
+
+// if ($statusCode == 200) {
+//     echo "Страница загружена успешно.\n";
+// } else {
+//     echo "Ошибка при загрузке страницы. Код: $statusCode\n";
+// }
+
+// require 'vendor/autoload.php';
+
+// use Goutte\Client;
+
+// // Создайте клиент
+// $client = new Client();
+
+// // Загружаем страницу
+// $crawler = $client->request('GET', 'https://ski-gv.ru/hills/1/2/');
+
+// // Извлекаем нужные данные
+// $crawler->filter('a.some-class')->each(function ($node) {
+//     echo $node->text() . ' - ' . $node->attr('href') . "\n";
+// });
+?>
 
     <script>
         const weatherData = {
@@ -291,35 +358,6 @@ $savedSkiPasses = $_SESSION['ski_passes'];
         params[5].innerText = `${weatherData.humidity}%`;
         params[7].innerText = `${weatherData.pressure} мм`;
     </script>
-    <?php
-// URL удалённой страницы
-$url = "https://ski-gv.ru/hills/1/2/";
-
-// Инициализация cURL
-$ch = curl_init($url);
-
-// Настройки cURL
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Следовать за редиректами
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Игнорировать SSL-ошибки (если нужно)
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-
-// Получение данных
-$response = curl_exec($ch);
-
-// Проверка на ошибки
-if (curl_errno($ch)) {
-    die("Ошибка cURL: " . curl_error($ch));
-}
-
-// Закрытие cURL
-curl_close($ch);
-
-// Вывод содержимого
-echo "tttttt";
-echo $response;
-
-?>
 
 </body>
 </html>

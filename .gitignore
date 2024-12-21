@@ -1,0 +1,5 @@
+/*            # 
+!/var/        
+!/var/www/    
+!/var/www/html/  # Не игнорируем папку /var/www/html
+/var/www/html/node_modules/
