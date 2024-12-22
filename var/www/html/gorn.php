@@ -227,11 +227,41 @@ $savedSkiPasses = $_SESSION['ski_passes'];
             </form>
         </div>
           <!-- Кнопка перехода на страницу со статусами подъёмников -->
-          <div class="form_hils">
-            <form action="/hils.php" method="get">
-                <button type="submit">Статусы трасс</button>
-            </form>
+          <div class="container">
+        <div class="header">Статусы трасс и подьемников</div>
+        
+        
+        <!-- <div style="text-align: center;font-size: 20px;font-weight: bold;margin-top: 5px;">Гора Большевик</div> -->
+        
+        <!-- Кнопки для перехода на страницы -->
+        <div style="text-align: center;margin: 8px;">
+            <a href="/hils.php">
+                <button style="padding: 12px 20px; background-color: #007bff; color: #fff; border: none; border-radius: 4px; font-size: 16px; cursor: pointer;">Трассы</button>
+            </a>
+            <a href="/lift.php" style="margin-left: 10px;">
+                <button style="padding: 12px 20px; background-color: #007bff; color: #fff; border: none; border-radius: 4px; font-size: 16px; cursor: pointer;">Подъёмники</button>
+            </a>
         </div>
+
+        
+        
+        
+        <!-- <div style="text-align: center;font-size: 20px;font-weight: bold;margin-top: 5px;">Гора Большевик</div> -->
+        
+        <!-- Кнопки для перехода на страницы -->
+        <!-- <div style="text-align: center;margin: 8px;"> -->
+            <!-- <a href="/hils.php"> -->
+                <!-- <button style="padding: 12px 20px; background-color: #007bff; color: #fff; border: none; border-radius: 4px; font-size: 16px; cursor: pointer;">Трассы</button> -->
+            <!-- </a> -->
+            <!-- <a href="/lift.php" style="margin-left: 10px;"> -->
+                <!-- <button style="padding: 12px 20px; background-color: #007bff; color: #fff; border: none; border-radius: 4px; font-size: 16px; cursor: pointer;">Подъёмники</button> -->
+            <!-- </a> -->
+        <!-- </div> -->
+
+
+        </div>
+
+        
     </div>
         <div class="tariffs">
             <div class="tariff">
@@ -265,14 +295,14 @@ $savedSkiPasses = $_SESSION['ski_passes'];
             <div class="weather-data">
                 <span class="weather-condition">-</span>
                 <p class="weather-card__temp temp">-</p>
-                <p>Ветер -</p>
+               
             </div>
         </div>
         <ul class="weather-card__params params">
             <li class="weather-card__param param"><p>Восход</p><p>-</p></li>
             <li class="weather-card__param param"><p>Заход</p><p>-</p></li>
             <li class="weather-card__param param"><p>Влажность</p><p>-</p></li>
-            <!-- <li class="weather-card__param param"><p>Давление</p><p>-</p></li> -->
+            <li class="weather-card__param param"><p>Давление</p><p>-</p></li>
         </ul>
     </div>
 
@@ -296,7 +326,7 @@ $savedSkiPasses = $_SESSION['ski_passes'];
     $weatherData = json_decode($response, true);
 
     // Извлечение данных
-    $condition = $weatherData['fact']['condition'] ?? 'нет данных';
+    // $condition = $weatherData['fact']['condition'] ?? 'нет данных';
     $temp = $weatherData['fact']['temp'] ?? 'нет данных';
     $wind_speed = $weatherData['fact']['wind_speed'] ?? 'нет данных';
     $humidity = $weatherData['fact']['humidity'] ?? 'нет данных';
@@ -402,9 +432,9 @@ $savedSkiPasses = $_SESSION['ski_passes'];
             chatWindow: {
                 showTitle: true,
                 showAgentMessages: true,
-                title: 'Горный воздух',
+                title: 'ИИ чат-бот',
                 titleAvatarSrc: 'https://raw.githubusercontent.com/walkxcode/dashboard-icons/main/svg/google-messages.svg',
-                welcomeMessage: 'Привет, я твой ИИ помощник по курорту "Горный воздух"',
+                welcomeMessage: 'Привет! Я твой ИИ помощник по курорту "Горный воздух". Я могу подсказать актуальные контакты, объяснить условия льготных тарифов и использования карты сахалинца, а так же подсказать их цены, рассказать о режиме работы трасс и подъемников, на каких трассах кататься новичку, ответить на часто задаваемые вопросы и не только. Чем могу помочь прямо сейчас?😊"',
                 errorMessage: 'Упссс что-то пошло не так ',
                 backgroundColor: '#ffffff',
                 backgroundImage: 'enter image path or link',
@@ -412,8 +442,9 @@ $savedSkiPasses = $_SESSION['ski_passes'];
                 width: 400,
                 fontSize: 16,
                 starterPrompts: [
-                    "Что умеет бот?",
-                    
+                    "Номера экстренных служб",
+                    "Карта Сахалинца",
+                    "Разовый проход по ски-пассу",
                 ],
                 starterPromptFontSize: 15,
                 clearChatOnReload: false,
@@ -436,7 +467,7 @@ $savedSkiPasses = $_SESSION['ski_passes'];
                     backgroundColor: '#ffffff',
                     textColor: '#303235',
                     sendButtonColor: '#3B81F6',
-                    maxChars: 50,
+                    maxChars: 80,
                     maxCharsWarningMessage: 'Превышен лимит',
                     autoFocus: true,
                     sendMessageSound: true,
@@ -453,7 +484,7 @@ $savedSkiPasses = $_SESSION['ski_passes'];
                 },
                 footer: {
                     textColor: '#303235',
-                    text: 'prod',
+                    text: 'Dev by',
                     company: '@ziabls',
                     companyLink: ''
                 }

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Горный воздух</title>
+    <title>Подъемники Горного Воздуха</title>
     <style>
 body {
     font-family: Arial, sans-serif;
@@ -81,25 +81,27 @@ body {
 </style>
 <?php
 // Получаем данные с API Node.js
-$api_url = 'http://localhost:3001/scrape'; 
+$api_url = 'http://localhost:3002/lift_scrap'; // Убедитесь, что API URL верный
 $response = file_get_contents($api_url);
 
 if ($response !== false) {
-    $tracks = json_decode($response, true); // Преобразуем JSON в массив
-    if (is_array($tracks) && count($tracks) > 0) {
-      
-        echo "<div class='header'>Трассы</div>";
-
+    $lifts = json_decode($response, true); // Преобразуем JSON в массив
+    if (is_array($lifts) && count($lifts) > 0) {
+        echo "<div class='header'>Подъёмники</div>"; // Заголовок страницы
+        
         echo "<div class='track-container'>";
         
-        foreach ($tracks as $track) {
-            $name = $track['name'] ?? 'Неизвестно';
-            $status = $track['status'] ?? 'Неизвестно';
+        // Проходим по всем подъемникам и выводим их
+        foreach ($lifts as $lift) {
+            $name = $lift['name'] ?? 'Неизвестно';
+            $status = $lift['status'] ?? 'Неизвестно';
 
-            $status_class = $status === 'открыта' ? 'status-open' : 'status-closed';
-            $status_text = $status === 'открыта' ? 'Открыта' : 'Закрыта';
-            $status_icon = $status === 'открыта' ? '✅' : '❌';
+            // Определяем класс и текст для статуса
+            $status_class = $status === 'открыт' ? 'status-open' : 'status-closed';
+            $status_text = $status === 'открыт' ? 'Открыт' : 'Закрыт';
+            $status_icon = $status === 'открыт' ? '✅' : '❌';
 
+            // Выводим HTML для каждого подъемника
             echo "<div class='track-card'>
                     <div class='track-card__title'>{$name}</div>
                     <div class='track-card__status {$status_class}'>
@@ -110,10 +112,11 @@ if ($response !== false) {
 
         echo "</div>";
     } else {
-        echo "<p>Трассы не найдены.</p>";
+        echo "<p>Подъемники не найдены.</p>";
     }
 } else {
     echo "<p>Не удалось получить данные с API.</p>";
 }
 ?>
 </html>
+
